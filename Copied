@@ -1,0 +1,36 @@
+/*package whatever //do not write package name here */
+
+import java.io.*;
+import java.util.*;
+
+class GFG {
+	public static void main (String[] args) {
+	    int a[]={ -1, 2, -3, 4, 5, 6, -7, 8, 9 };
+        int n = a.length;
+	    int i,left=0,right=n-1;
+	    while(left<=right)
+	    {
+	        if(a[left]>0 && a[right]>0)
+	        right--;
+	        else if(a[left]>0 && a[right]<0)
+	        {
+	            int t=a[left];
+	            a[left]=a[right];
+	            a[right]=t;
+	            left++;
+	            right--;
+	        }
+	        else if(a[left]<0 && a[right]<0)
+	        left++;
+	        else
+	        {
+	            left++;
+	            right--;
+	        }
+	    }
+	    for(i=0;i<n;i++)
+	    {
+	        System.out.print(a[i]+" ");
+	    }
+	}
+}
